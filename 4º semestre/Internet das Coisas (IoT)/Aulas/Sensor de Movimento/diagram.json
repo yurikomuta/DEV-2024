@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Perlman",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -33.7, "left": -24.2, "attrs": {} },
+    { "type": "wokwi-pir-sensor", "id": "pir1", "top": -88.1, "left": 298.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -3.6, "left": 407, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "res1",
+      "top": 157.55,
+      "left": 259.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir2",
+      "top": -72.8,
+      "left": -141.78,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:5V", "pir1:VCC", "green", [ "h0" ] ],
+    [ "esp:GND.1", "pir1:GND", "black", [ "h0" ] ],
+    [ "esp:15", "pir1:OUT", "orange", [ "h0" ] ],
+    [ "esp:16", "res1:1", "blue", [ "h-20" ] ],
+    [ "res1:2", "led1:A", "blue", [ "h0" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h0" ] ],
+    [ "pir2:GND", "esp:GND.2", "black", [ "h-0.26", "v192", "h-259.2", "v-96", "h326.4" ] ],
+    [ "esp:D5", "res1:1", "green", [ "h0" ] ],
+    [ "esp:3V3", "pir2:VCC", "red", [ "v57.6", "h-182.7" ] ],
+    [ "esp:D15", "pir2:OUT", "purple", [ "h18.9", "v86.2", "h-182.4" ] ]
+  ],
+  "dependencies": {}
+}
